@@ -15,4 +15,16 @@ public class ApiNinjaImpl implements QuoteService {
         String url = "https://api.api-ninjas.com/v1/quotes?category="+category;
         return apiConnection.connectAndGet(url, HttpMethod.GET, String.class);
     }
+
+    @Override
+    public String getQuotes(String category, String limit) {
+        String url = "https://api.api-ninjas.com/v1/quotes?category="+category+"&limit"+limit;
+        return apiConnection.connectAndGet(url, HttpMethod.GET, String.class);
+    }
+
+    @Override
+    public String getOneQuote() {
+        String url = "https://api.api-ninjas.com/v1/quotes";
+        return apiConnection.connectAndGet(url, HttpMethod.GET, String.class);
+    }
 }

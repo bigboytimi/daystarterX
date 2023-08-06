@@ -9,6 +9,7 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
 import java.lang.reflect.Type;
+import java.util.List;
 
 @Service
 @RequiredArgsConstructor
@@ -33,11 +34,27 @@ public class QuotesUseCaseImpl implements QuotesUseCase{
 
     @Override
     public QuoteResponse getRandomQuote() {
-        return null;
+        Type responseType = new TypeToken<QuoteResponse>() {}.getType();
+
+        String response = quoteService.getOneQuote();
+
+        if(response != null){
+            return gson.fromJson(response, responseType);
+        } else {
+            throw new RequestNotFoundException("Category not available");
+        }
     }
 
     @Override
-    public QuoteResponse getManyQuotes(String category, String limit) {
-        return null;
+    public List<QuoteResponse> getManyQuotes(String category, String limit) {
+        Type responseType = new TypeToken<List<QuoteResponse>>() {}.getType();
+
+        String response = quoteService.getQuotes(category, limit);
+
+        if (response != null){
+            return gson.fromJson(response, responseType);
+        } else {
+            throw new RequestNotFoundException("Category not available");
+        }
     }
 }
