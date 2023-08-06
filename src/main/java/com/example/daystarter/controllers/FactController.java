@@ -11,6 +11,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.util.List;
+
 @RestController
 @RequestMapping("api/v1/facts")
 @RequiredArgsConstructor
@@ -19,6 +21,12 @@ public class FactController {
     @GetMapping
     public ResponseEntity<FactResponse> getOneFact(){
         FactResponse response = factsUseCase.getFact();
+        return new ResponseEntity<>(response, HttpStatus.OK);
+    }
+
+    @GetMapping("/filter")
+    public ResponseEntity<List<FactResponse>> getMoreFact(@RequestParam(name = "limit") String limit){
+        List<FactResponse> response = factsUseCase.getFacts(limit);
         return new ResponseEntity<>(response, HttpStatus.OK);
     }
 }
