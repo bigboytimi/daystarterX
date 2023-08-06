@@ -30,4 +30,14 @@ public class QuotesUseCaseImpl implements QuotesUseCase{
         }
 
     }
+
+    @Override
+    public QuoteResponse getRandomQuote() {
+        return null;
+    }
+
+    @Override
+    public QuoteResponse getManyQuotes(String category, String limit) {
+        return null;
+    }
 }
