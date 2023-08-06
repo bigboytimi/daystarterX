@@ -10,6 +10,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.util.List;
+
 @RestController
 @RequestMapping("api/v1/quotes")
 @RequiredArgsConstructor
@@ -32,9 +34,9 @@ public class QuoteController {
     }
 
     @GetMapping("/filter")
-    public ResponseEntity<QuoteResponse> getMoreQuotes(@RequestParam(name = "category") String category,
-                                                       @RequestParam(name = "limit") String limit){
-        QuoteResponse response = quotesUseCase.getManyQuotes(category, limit);
+    public ResponseEntity<List<QuoteResponse>> getMoreQuotes(@RequestParam(name = "category") String category,
+                                                             @RequestParam(name = "limit") String limit){
+        List<QuoteResponse> response = quotesUseCase.getManyQuotes(category, limit);
         return new ResponseEntity<>(response, HttpStatus.OK);
     }
 }
