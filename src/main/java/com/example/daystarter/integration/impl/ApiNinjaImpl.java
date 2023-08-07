@@ -73,11 +73,13 @@ public class ApiNinjaImpl implements QuoteService, FactService, EventService, Cr
 
     @Override
     public String getPrice(String symbol) {
-        return null;
+        String url = "https://api.api-ninjas.com/v1/cryptoprice?symbol="+symbol;
+        return apiConnection.connectAndGet(url, HttpMethod.GET, String.class);
     }
 
     @Override
     public String getSymbols() {
-        return null;
+        String url = "https://api.api-ninjas.com/v1/cryptosymbols?";
+        return apiConnection.connectAndGet(url, HttpMethod.GET, String.class);
     }
 }
