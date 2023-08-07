@@ -70,6 +70,7 @@ public class ApiNinjaImpl implements QuoteService, FactService, EventService {
 
     @Override
     public String getFacts(int limit) {
-        return null;
+        String url = "https://api.api-ninjas.com/v1/facts?limit="+"&limit";
+        return apiConnection.connectAndGet(url, HttpMethod.GET, String.class);
     }
 }
