@@ -1,6 +1,7 @@
 package com.example.daystarter.features.facts;
 
 import com.example.daystarter.dto.response.FactResponse;
+import com.example.daystarter.exceptions.IncompleteParameterException;
 import com.example.daystarter.exceptions.RequestNotFoundException;
 import com.example.daystarter.integration.FactService;
 import com.google.gson.Gson;
@@ -31,7 +32,11 @@ public class FactsUseCaseImpl implements FactsUseCase{
     }
 
     @Override
-    public List<FactResponse> getFacts(String limit) {
+    public List<FactResponse> getFacts(int limit) {
+
+        if (limit <= 1 || limit > 30){
+            throw new IncompleteParameterException("Limit must be more than 1 and below or equals 30");
+        }
         Type responseType = new TypeToken<FactResponse>(){}.getType();
 
         String response = factService.getFacts(limit);
