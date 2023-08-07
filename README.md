@@ -128,6 +128,6 @@ To ensure fair usage of the API, there might be rate-limiting applied to some en
 
 ## Conclusion
 
-The Good Morning API offers a wide range of delightful and informative content to brighten up the start of each day. Whether you want an inspiring quote, a fascinating fact, a good laugh, or some useful information, this API has got you covered. Feel free to explore the various endpoints and make your mornings more enjoyable and knowledgeable! If you have any questions or need assistance, don't hesitate to contact our support team at support@goodmorningapi.com.
+The Day Starter API offers a wide range of delightful and informative content to brighten up the start of each day. Whether you want an inspiring quote, a fascinating fact, a good laugh, or some useful information, this API has got you covered. Feel free to explore the various endpoints and make your mornings more enjoyable and knowledgeable! If you have any questions or need assistance, don't hesitate to contact our support team at support@goodmorningapi.com.
 
 Happy coding and have a great morning! 🌞
