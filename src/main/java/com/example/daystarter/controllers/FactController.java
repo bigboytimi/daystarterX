@@ -25,7 +25,7 @@ public class FactController {
     }
 
     @GetMapping("/filter")
-    public ResponseEntity<List<FactResponse>> getMoreFact(@RequestParam(name = "limit") String limit){
+    public ResponseEntity<List<FactResponse>> getMoreFact(@RequestParam(name = "limit") int limit){
         List<FactResponse> response = factsUseCase.getFacts(limit);
         return new ResponseEntity<>(response, HttpStatus.OK);
     }

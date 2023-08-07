@@ -6,5 +6,5 @@ import java.util.List;
 
 public interface FactsUseCase {
     FactResponse getFact();
-    List<FactResponse> getFacts(String limit);
+    List<FactResponse> getFacts(int limit);
 }
