@@ -1,16 +1,13 @@
 package com.example.daystarter.integration.impl;
 
-import com.example.daystarter.integration.ApiConnection;
-import com.example.daystarter.integration.EventService;
-import com.example.daystarter.integration.FactService;
-import com.example.daystarter.integration.QuoteService;
+import com.example.daystarter.integration.*;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpMethod;
 import org.springframework.stereotype.Service;
 
 @Service
 @RequiredArgsConstructor
-public class ApiNinjaImpl implements QuoteService, FactService, EventService {
+public class ApiNinjaImpl implements QuoteService, FactService, EventService, CryptoService {
     private final ApiConnection apiConnection;
 
     @Override
@@ -72,5 +69,15 @@ public class ApiNinjaImpl implements QuoteService, FactService, EventService {
     public String getFacts(int limit) {
         String url = "https://api.api-ninjas.com/v1/facts?limit="+"&limit";
         return apiConnection.connectAndGet(url, HttpMethod.GET, String.class);
+    }
+
+    @Override
+    public String getPrice(String symbol) {
+        return null;
+    }
+
+    @Override
+    public String getSymbols() {
+        return null;
     }
 }

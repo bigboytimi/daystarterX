@@ -4,6 +4,7 @@ import com.example.daystarter.dto.response.FactResponse;
 import com.example.daystarter.exceptions.IncompleteParameterException;
 import com.example.daystarter.exceptions.RequestNotFoundException;
 import com.example.daystarter.integration.FactService;
+import com.example.daystarter.utils.GsonSingleton;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 import lombok.RequiredArgsConstructor;
@@ -16,7 +17,7 @@ import java.util.List;
 @RequiredArgsConstructor
 public class FactsUseCaseImpl implements FactsUseCase{
 
-    private final Gson gson;
+    Gson gson = GsonSingleton.getInstance();
     private final FactService factService;
     @Override
     public FactResponse getFact() {

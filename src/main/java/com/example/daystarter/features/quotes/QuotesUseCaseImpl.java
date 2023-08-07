@@ -3,6 +3,7 @@ package com.example.daystarter.features.quotes;
 import com.example.daystarter.dto.response.QuoteResponse;
 import com.example.daystarter.exceptions.RequestNotFoundException;
 import com.example.daystarter.integration.QuoteService;
+import com.example.daystarter.utils.GsonSingleton;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 import lombok.RequiredArgsConstructor;
@@ -14,7 +15,7 @@ import java.util.List;
 @Service
 @RequiredArgsConstructor
 public class QuotesUseCaseImpl implements QuotesUseCase{
-    private final Gson gson;
+    Gson gson = GsonSingleton.getInstance();
 
     private final QuoteService quoteService;
 

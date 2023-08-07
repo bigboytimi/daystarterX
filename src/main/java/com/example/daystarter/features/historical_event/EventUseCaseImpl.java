@@ -5,6 +5,7 @@ import com.example.daystarter.dto.response.EventResponse;
 import com.example.daystarter.exceptions.IncompleteParameterException;
 import com.example.daystarter.exceptions.RequestNotFoundException;
 import com.example.daystarter.integration.EventService;
+import com.example.daystarter.utils.GsonSingleton;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 import lombok.RequiredArgsConstructor;
@@ -18,7 +19,7 @@ import java.util.List;
 public class EventUseCaseImpl implements EventUseCase{
 
     private final EventService eventService;
-    private final Gson gson;
+    Gson gson = GsonSingleton.getInstance();
 
     @Override
     public List<EventResponse> getEvents(EventRequest request) {
